@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cong.x.project.web.mapper.SysUserMapper">
+
+    <select id="selectAll" resultType="org.cong.x.project.web.model.SysUser">
+        select id, name, age,password,phone,create_date from sys_user;
+    </select>
+
+</mapper>
