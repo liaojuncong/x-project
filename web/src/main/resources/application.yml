@@ -23,6 +23,13 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+mybatis:
+    type-aliases-package: org.cong.x.project.model
+    #type-handlers-package: com.example.typehandler
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 30
 logging:
   file: /Users/liaojuncong/logs/x-project.log
   level: debug

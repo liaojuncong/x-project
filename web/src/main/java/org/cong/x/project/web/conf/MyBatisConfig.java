@@ -35,7 +35,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setTypeAliasesPackage("org.cong.x.project.model");
+        //sqlSessionFactoryBean.setTypeAliasesPackage("org.cong.x.project.model");
 
         //分页插件
         PageHelper pageHelper = new PageHelper();
