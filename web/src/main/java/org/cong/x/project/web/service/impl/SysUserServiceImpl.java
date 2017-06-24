@@ -1,6 +1,7 @@
 package org.cong.x.project.web.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import org.cong.x.project.web.dao.SysUserDao;
 import org.cong.x.project.web.mapper.SysUserMapper;
 import org.cong.x.project.web.model.SysUser;
 import org.cong.x.project.web.service.SysUserService;
@@ -21,9 +22,16 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
+    @Autowired
+    private SysUserDao sysUserDao;
 
     @Override
     public DataRes<PageRes<SysUser>> getUserInfo() {
+
+        SysUser user = sysUserDao.selectById(1);
+
+        List<SysUser> users = sysUserMapper.select();
+
         PageHelper.startPage(1, 3, "id");
         List<SysUser> list = sysUserMapper.selectAll();
 
