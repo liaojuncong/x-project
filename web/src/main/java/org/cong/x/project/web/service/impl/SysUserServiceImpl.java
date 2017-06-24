@@ -32,7 +32,7 @@ public class SysUserServiceImpl implements SysUserService {
 
         List<SysUser> users = sysUserMapper.select();
 
-        PageHelper.startPage(1, 3, "id");
+        PageHelper.startPage(3, 2);
         List<SysUser> list = sysUserMapper.selectAll();
 
         PageRes page = ConverterUtil.convertToPageInfoRes(list);

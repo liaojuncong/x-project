@@ -3,7 +3,7 @@
 <mapper namespace="org.cong.x.project.web.mapper.SysUserMapper">
 
     <select id="selectAll" resultType="org.cong.x.project.web.model.SysUser">
-        select id, name, age,password,phone,create_date from sys_user;
+        select id, name, age,password,phone,create_date from sys_user
     </select>
 
 </mapper>

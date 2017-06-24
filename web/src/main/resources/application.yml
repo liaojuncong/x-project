@@ -26,10 +26,16 @@ spring:
 mybatis:
     type-aliases-package: org.cong.x.project.model
     #type-handlers-package: com.example.typehandler
+    mapper-locations: classpath:/mybatis/*.xml
     configuration:
         map-underscore-to-camel-case: true
         default-fetch-size: 100
         default-statement-timeout: 30
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 logging:
   file: /Users/liaojuncong/logs/x-project.log
   level: debug

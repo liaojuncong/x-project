@@ -1,6 +1,5 @@
 package org.cong.x.project.web.conf;
 
-import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.cong.x.project.web.interceptor.SqlCostInterceptor;
@@ -17,7 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
  * Created by liaojuncong on 05/10/2016.
@@ -35,17 +33,9 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        //sqlSessionFactoryBean.setTypeAliasesPackage("org.cong.x.project.model");
+        sqlSessionFactoryBean.setTypeAliasesPackage("org.cong.x.project.model");
 
-        //分页插件
-        PageHelper pageHelper = new PageHelper();
-        Properties properties = new Properties();
-        properties.setProperty("reasonable", "true");
-        properties.setProperty("supportMethodsArguments", "true");
-        properties.setProperty("returnPageInfo", "check");
-        properties.setProperty("params", "count=countSql");
-        pageHelper.setProperties(properties);
-        sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper, new SqlCostInterceptor()});
+        sqlSessionFactoryBean.setPlugins(new Interceptor[]{new SqlCostInterceptor()});
 
         //XML目录
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
