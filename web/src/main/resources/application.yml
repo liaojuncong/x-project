@@ -2,8 +2,7 @@ server:
   port: 8080
 spring:
   datasource:
-
-    name: football_school
+    name: x-project
     url: jdbc:mysql://127.0.0.1:3306/x_project
     username: root
     password: cong
@@ -25,4 +24,5 @@ spring:
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
 logging:
+  file: /Users/liaojuncong/logs/x-project.log
   level: debug
